@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+#loadMore{
+  position: fixed;
+  bottom: 40px;
+  right:  60px;
+  z-index: 99;
+  width:  70px;
+  height: 70px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-radius: 50px;
+  border: none;
+  animation: resize 1s ease-in-out infinite;
+}
+#loadMore:hover{
+  animation: none;
+  background-color: #a38c21;
+}
+@keyframes resize{
+  50%{
+    transform: scale(1.2);
+    background-color: #729f3f;
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+#wrapper{
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  h1{
+    font-size: 3.2rem;
+    font-weight: 900;
+    text-align: center;
+  }
+}
+input{
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  width: 400px;
+  margin-left: 20px;
+  outline: none;
+  padding-left: 10px;
+  box-shadow: inset 0px 0px 5px #000;
+}
+select{
+  height: 45px;
+  padding: 0px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 0px 0px 5px #000;
+}
+
+#pokemons{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  column-gap: 40px;
+  width: 90%;
+  margin: auto;
+}
+
+.imgDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokeId{
+  width: 90%;
+  background-color: white;
+  padding: 2px 0px;
+  /* opacity: 0.8; */
+  box-shadow: inset -1px -1px 4px, inset 1px 1px 4px;
+}
+.pokeIdBack{
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 5px 0px;
+  position: absolute;
+  top: -40px;
+  text-align: center;
+}
+
+
+/* FLIPING CARD-------------------------------------------------------------------- */
+.flip-card {
+  background-color: transparent;
+  width: 180px;
+  height: 260px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 2 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 2px 2px 5px #000;
+  border-radius: 10px;
+}
+
+.flip-card-front {
+  background-color: #C71585;
+  color: black;
+  padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  img{
+    width: 100px;
+  }
+}
+
+.flip-card-back {
+  background-color: #A9A9A9;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0px 11px;
+}
+
+.detailsBack{
+  font-size: 1rem;
+  text-align: left;
+  line-height: 35px;
+  color: #000;
+  cursor: pointer;
+}
+
+
+
+ /* for colors =---------------------------------------------------- */
+
+ #grass {
+  background-color: #9bcc50;
+}
+
+#bug {
+  background-color: #729f3f;
+}
+
+#fire {
+  background-color :#fd7d24;
+}
+
+#water {
+  background-color: #4592c4;
+}
+
+#ice {
+  background-color: #51c4e7;
+}
+
+#electric {
+  background-color: #eed535;
+}
+
+#psychic {
+  background-color:  #f366b9;
+}
+
+
+#fairy {
+  background-color: #fdb9e9;
+}
+
+#ghost {
+  background-color: #7b62a3;
+}
+
+#ground {
+  background-color: #f7de3f;
+}
+
+#poison {
+  background-color: #b97fc9;
+}
+
+#fairy {
+  background-color: #fdb9e9;
+}
+
+#normal {
+  background-color: #a4acaf;
+}
+
+#dragon {
+  background-color: goldenrod;
+}
+
+#fighting {
+  background-color: #d56723;
+}
+
+#rock {
+  background-color: #a38c21;
+}
+
+
+@media screen and (max-width: 480px){
+  body{
+    background-color: wheat;
+  }
+
+  #wrapper{
+    h1{
+      font-size: 2.2rem;
+    }
+
+    input{
+      height: 30px;
+      width: 200px;
+      box-shadow: inset 0px 0px 5px #000, inset 1px 1px 5px #000;
+      margin-left: -1px;
+    }
+    select{
+      height: 30px;
+      padding: 0px 15px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      outline: none;
+      box-shadow: 0px 0px 5px #000;
+    }
+  }
+
+  #search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 100px;
+    height: 150px;
+    perspective: 1000px;
+  }
+  
+  
+  .flip-card-front, .flip-card-back {
+    border-radius: 5px;
+  }
+  
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+    padding: 15px 0px;
+    display: grid;
+    place-items: center;
+  
+    img{
+      width: 60px;
+    }
+    h3{
+      font-size: 1rem;
+    }
+    p{
+      font-size: 0.75rem;
+    }
+  }
+
+  .flip-card-back{
+    p{
+      font-size: 0.7rem;
+    }
+  }
+
+
+}
