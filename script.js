@@ -4,6 +4,9 @@ const pokemon = document.querySelector('#pokemons');
 const search = document.querySelector('#search');
 const loadMore = document.querySelector('#loadMore');
 const loading = document.querySelector('#loading');
+const reset = document.querySelector("#reset");
+
+
 
 let offset = 0;
 let limit = 20;
@@ -16,6 +19,12 @@ getType();
 getPokemons(pokemonURL);
 
 console.log(finalData);
+
+reset.addEventListener('click', ()=>{
+  pokemon.innerHTML = "";
+  const data = getPokemons(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`);
+  displayPokemons(data);
+})
 
 loadMore.addEventListener('click', (e)=>{
   search.value = "";
@@ -84,6 +93,7 @@ function displayPokemons(pokemons){
     flipCard.className = "flip-card";
     const flipCardInner = document.createElement('div');
     flipCardInner.className = "flip-card-inner";
+    
     const flipCardFront = document.createElement('div');
     flipCardFront.className = "flip-card-front";
     const pokeImg = document.createElement('img');
@@ -101,6 +111,8 @@ function displayPokemons(pokemons){
     obj.types.forEach((typeObj)=>{
       types.push(typeObj.type.name);
     });
+
+    flipCardFront.id = `${types[0]}`;
     pokeType.innerHTML = "<strong>Type: </strong>" + types.toString();
     const flipCardBack = document.createElement('div');
 

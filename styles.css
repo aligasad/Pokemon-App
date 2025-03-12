@@ -71,6 +71,23 @@ select{
   font-weight: bold;
   outline: none;
   box-shadow: 0px 0px 5px #000;
+  cursor: pointer;
+}
+
+#reset{
+  margin-left: 15px;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px #000;
+}
+#reset:hover{
+  background-color: rgb(188, 33, 33);
+  transform: scale(1.1);
+  color: #fff;
 }
 
 #pokemons{
@@ -287,17 +304,16 @@ select{
     input{
       height: 30px;
       width: 200px;
-      box-shadow: inset 0px 0px 5px #000, inset 1px 1px 5px #000;
       margin-left: -1px;
     }
     select{
       height: 30px;
-      padding: 0px 15px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      outline: none;
-      box-shadow: 0px 0px 5px #000;
+      width: 100px;
+    }
+
+    #reset{
+      margin-left: 0px;
+      padding: 5px 10px;
     }
   }
   .search{
