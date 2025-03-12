@@ -17,6 +17,7 @@
   font-weight: bold;
   border-radius: 50px;
   border: none;
+  cursor: pointer;
   animation: resize 1s ease-in-out infinite;
 }
 #loadMore:hover{
@@ -143,7 +144,7 @@ select{
   justify-content: space-between;
 
   img{
-    width: 100px;
+    height: 100px;
   }
 }
 
@@ -159,9 +160,9 @@ select{
 }
 
 .detailsBack{
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: left;
-  line-height: 35px;
+  line-height: 25px;
   color: #000;
   cursor: pointer;
 }
@@ -241,6 +242,14 @@ select{
     background-color: wheat;
   }
 
+  #loadMore{
+    right: 20px;
+    bottom: 20px;
+    width:  35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
   #wrapper{
     h1{
       font-size: 2.2rem;
@@ -284,28 +293,33 @@ select{
   }
   
   .flip-card-front {
-    background-color: #bbb;
-    color: black;
     padding: 15px 0px;
-    display: grid;
-    place-items: center;
   
     img{
-      width: 60px;
+      height: 50px;
     }
     h3{
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
     p{
-      font-size: 0.75rem;
+      font-size: 0.6rem;
     }
   }
 
   .flip-card-back{
+    padding: 1px;
     p{
       font-size: 0.7rem;
     }
+
+    .detailsBack{
+      line-height: 15px;
+      cursor: pointer;
+      font-size: 0.5rem;
+    }
   }
+
+  
 
 
 }
