@@ -6,7 +6,7 @@ const loadMore = document.querySelector('#loadMore');
 const loading = document.querySelector('#loading');
 
 let offset = 0;
-let limit = 50;
+let limit = 20;
 const pokemonURL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 let types;
 let pokemons;
@@ -18,6 +18,7 @@ getPokemons(pokemonURL);
 console.log(finalData);
 
 loadMore.addEventListener('click', (e)=>{
+  search.value = "";
   offset = offset + limit;
   getPokemons("https://pokeapi.co/api/v2/pokemon?limit=10&offset=" + offset);
 })
@@ -59,13 +60,6 @@ select.addEventListener('change', (e)=>{
 async function getPokemons(url){
   pokemons = await getDataFromURL(url);
   pokemons = pokemons.results;
-  // console.log(pokemons);
-  // this is first method to get pokemons type and image(not good approach because each time we are waiting for fetching data);
-  // ONE BY ONE PROMISE SHOW KRA RHE HAI
-  // pokemons.forEach(async (obj)=>{
-  //   const data = await getDataFromURL(obj.url);
-  //   console.log(data);
-  // });
 
   // 2nd Method---- ---- ---       ----              ------
   // EK SAATH SAARE PROMISES SHOW KRA RHE HAI
@@ -110,6 +104,13 @@ function displayPokemons(pokemons){
     pokeType.innerHTML = "<strong>Type: </strong>" + types.toString();
     const flipCardBack = document.createElement('div');
 
+    const heading = document.createElement('h4');
+    heading.innerText = "@wanderlust_026"
+
+    const backImg = document.createElement('img');
+    backImg.src = obj.sprites.other.dream_world.front_default;
+    backImg.className = "backImg";
+
     flipCardBack.className = "flip-card-back";
     const backName = document.createElement('p');
     backName.innerHTML = `<strong>Name:</strong> ${obj.name} <br>  <strong>Height: </strong> ${obj.height} <br> <strong>Weight: </strong> ${obj.weight} <br> <strong>Moves: </strong> ${obj.moves[0].move.name} <br>  <strong>Rank: </strong> ${obj.base_experience} <br>`
@@ -123,7 +124,7 @@ function displayPokemons(pokemons){
     content.append(pokeName, pokeType)
 
     flipCardFront.append(pokeId, pokeImg, content);
-    flipCardBack.append(backId, backName);
+    flipCardBack.append(backId, heading,  backName, backImg);
     flipCardInner.append(flipCardFront, flipCardBack);
     flipCard.append(flipCardInner);
     fragment.append(flipCard);
