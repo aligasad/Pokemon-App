@@ -112,7 +112,7 @@ function displayPokemons(pokemons){
 
     flipCardBack.className = "flip-card-back";
     const backName = document.createElement('p');
-    backName.innerHTML = `<strong>Name:</strong> ${obj.name} <br>  <strong>Height: </strong> ${obj.height} <br> <strong>Weight: </strong> ${obj.weight} <br> <strong>Moves: </strong> ${obj.moves[0].move.name} <br>`
+    backName.innerHTML = `<strong>Name:</strong> ${obj.name} <br>  <strong>Height: </strong> ${obj.height} <br> <strong>Weight: </strong> ${obj.weight} <br> <strong>Moves: </strong> ${obj.moves[0].move.name} <br>  <strong>Rank: </strong> ${obj.base_experience} <br>`
     backName.classList.add("detailsBack");
 
     const backId = document.createElement('p');

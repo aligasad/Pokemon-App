@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
 }
 #loadMore{
   position: fixed;
@@ -136,7 +136,7 @@ select{
 
 .flip-card-front {
   background-color: #C71585;
-  color: black;
+  color: #380827;
   padding: 15px 0px;
   display: flex;
   flex-direction: column;
@@ -145,6 +145,12 @@ select{
 
   img{
     height: 100px;
+  }
+  h2{
+    color: #ffeef9;
+  }
+  p{
+    font-size: 0.8rem;
   }
 }
 
@@ -236,7 +242,7 @@ select{
   background-color: #a38c21;
 }
 
-
+/* ---------------------------------------------MEDIA QUERY------------------------------ */
 @media screen and (max-width: 480px){
   body{
     background-color: wheat;
@@ -319,7 +325,8 @@ select{
     }
   }
 
-  
-
+  .pokeIdBack{
+    padding: 1px 0px;
+  }
 
 }
