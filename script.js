@@ -7,7 +7,6 @@ const loading = document.querySelector('#loading');
 const reset = document.querySelector("#reset");
 
 
-
 let offset = 0;
 let limit = 20;
 const pokemonURL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
@@ -24,15 +23,42 @@ reset.addEventListener('click', ()=>{
   pokemon.innerHTML = "";
   const data = getPokemons(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`);
   displayPokemons(data);
+  
 })
 
 loadMore.addEventListener('click', (e)=>{
   search.value = "";
   offset = offset + limit;
-  getPokemons("https://pokeapi.co/api/v2/pokemon?limit=10&offset=" + offset);
+  getPokemons(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
 })
 
-search.addEventListener('keyup', (e)=>{
+// SEARCHING WITHOUT DEBPUNDING-----------------------------------------------------
+// search.addEventListener('keyup', (e)=>{
+//   if(e.target.value.length === 0) displayPokemons(finalData);
+//   const searchPokemons = finalData.filter((obj)=>{
+//     return obj.name.includes(e.target.value);
+//   });
+
+//   if(searchPokemons.length === 0){
+//     pokemon.innerHTML = "";
+//     pokemon.innerHTML = "<h1>No Pokemons are Found</h1>"
+//   }
+//   else{
+//     pokemon.innerHTML = "";
+//     displayPokemons(searchPokemons);
+//   }
+  
+// })
+
+// SEARCHING WITH DEBPUNDING-----------------------------------------------------
+function debounce(func, delay){
+  let timer;
+  return function (...args){
+    clearInterval(timer);
+    timer = setTimeout(()=> func(...args), delay);
+  }
+}
+function searchQuery(e) {
   if(e.target.value.length === 0) displayPokemons(finalData);
   const searchPokemons = finalData.filter((obj)=>{
     return obj.name.includes(e.target.value);
@@ -46,9 +72,10 @@ search.addEventListener('keyup', (e)=>{
     pokemon.innerHTML = "";
     displayPokemons(searchPokemons);
   }
-  
-})
-
+}
+const debouncFunc = debounce(searchQuery, 1200);
+search.addEventListener('keyup', debouncFunc);
+// ------------END DEBOUNCING------------------------------------------------
 select.addEventListener('change', (e)=>{
   // console.log(e.target.value);
   const copy = finalData;
@@ -112,7 +139,7 @@ function displayPokemons(pokemons){
       types.push(typeObj.type.name);
     });
 
-    flipCardFront.id = `${types[0]}`;
+    flipCardFront.id = types[0];
     pokeType.innerHTML = "<strong>Type: </strong>" + types.toString();
     const flipCardBack = document.createElement('div');
 
